@@ -1,7 +1,7 @@
 export default function name() {
 
   return (
-    <p>teste</p>
+    console.log("teste")
   )
   
 }
