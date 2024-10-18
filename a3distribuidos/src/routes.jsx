@@ -1,16 +1,24 @@
 import { createBrowserRouter } from 'react-router-dom';
-import HomeUser from "./Pages/PagesUser/HomeUser/HomeUser.jsx"
-import ToMark from "../src/Components/ToMark/ToMark.jsx";
+// import HomeUser from "./Components/UserComponents/HomeUser/HomeUser.jsx"
+import ToMark from "./Pages/PagesUser/ToMark/ToMark.jsx";
+import LayoutUser from './Pages/LayoutUser.jsx';
+import MyQueriesUser from './Pages/PagesUser/MyQueriesUser/MyQueriesUser.jsx';
+import Medicines from './Pages/PagesUser/Medicines/Medicines.jsx';
+import CidUser from './Pages/PagesUser/CidUser/cidUser.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeUser />,
+    element: <LayoutUser />,
     children: [
-      { index: true, element: <HomeUser /> },
-      { path: "home", element: <HomeUser /> },
-      {path: "agendar", element: <ToMark />}
+      { index: true, element: <ToMark /> },
+      {path: "agendar", element: <ToMark />},
+      {path: "minhaconsulta", element: <MyQueriesUser />},
+      {path: "medicamentos", element: <Medicines />},
+      {path: "cid", element: <CidUser />},
 
+
+      
 
 
 
