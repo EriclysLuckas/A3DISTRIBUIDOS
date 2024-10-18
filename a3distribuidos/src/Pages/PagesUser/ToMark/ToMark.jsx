@@ -1,4 +1,4 @@
-import styleToMark from "./ToMark.module.css";
+// import styleToMark from "./ToMark.module.css";
 
 
 export default function name() {
