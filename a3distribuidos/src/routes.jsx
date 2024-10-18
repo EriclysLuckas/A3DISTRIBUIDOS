@@ -17,11 +17,6 @@ const router = createBrowserRouter([
       {path: "medicamentos", element: <Medicines />},
       {path: "cid", element: <CidUser />},
 
-
-      
-
-
-
     ],
   },
 ]);
