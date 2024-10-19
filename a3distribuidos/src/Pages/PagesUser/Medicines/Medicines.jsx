@@ -1,7 +1,7 @@
 export default function Medicines() {
 
 return(
-    <p>Medicines</p>
+    <p>TEla de medicamentos</p>
 
 )
 }
