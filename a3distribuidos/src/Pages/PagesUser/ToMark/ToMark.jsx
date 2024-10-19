@@ -1,10 +1,18 @@
-// import styleToMark from "./ToMark.module.css";
+import styleToMark  from "./ToMark.module.css";
 
 
 export default function name() {
 
   return (
-    <p>Agedar Consultas</p>
+    <div>
+      <header className="header">
+        <img src="#" alt="#" />
+      </header>
+    </div>
+
+    <div> 
+      <h1>Agendar Consultas</h1>
+    </div>
   )
   
 }
