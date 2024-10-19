@@ -2,32 +2,81 @@ body{
     background-color: #fff;
     padding: 0;
 }
+.h2{
+    padding: 2rem 0;
+    margin-top: 20px; 
+    text-align: center;
+    color: #060606;
+    font-family: Arial, Helvetica, sans-serif;
 
+    
+}
 .container{
-    width: 40rem;
-    height: 25rem;
+    width: 50%;
+    height: 60%;
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
-    align-items: center; 
     margin: auto; 
-    border-radius: 5px;
-    background-color:#bdbdbd;
-}
-
-.h2{
-    padding: 2rem;
-    margin-top: 20px; 
-    margin-bottom: 15px; 
-    text-align: center; 
-    font-size: 2.5em,
-    
+    border-radius: 1rem;
+    background-color:#dfdfdf;
 }
 
 .box_container{
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.dhm{
+    background-color: #dfdfdf;
+    width: 80%;
+}
+.bar{
+    padding: 50px;
     
 }
 
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: black;
+}
 
 
+.box_list{
+    width: 9.5rem;
+    padding: 6%;
+    background-color: #fff;
+    color: black;
+    border-radius: 0.3rem;
+    border: none;
+}
 
+
+.button{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    padding: 10%;
+}
+
+.btn{
+    padding: 0.3rem;
+    width: 8rem;
+    border-radius: 0.3rem;
+    background-color: #6c9f60;
+    border: none;
+
+}
