@@ -17,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #04544c;
+    background-color: #5c8c84;
     padding: 15px 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -86,7 +86,7 @@
   }
   
   .dayTitleContainer {
-    background-color: #04544c;
+    background-color: #5c8c84;
     padding: 8px;
     border-radius: 6px;
     margin-bottom: 10px;
@@ -106,7 +106,7 @@
     padding: 15px;
     border-radius: 6px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #04544c;
+    border-left: 4px solid #5c8c84;
   }
   
   .doctorName {
