@@ -18,7 +18,7 @@ export default function name() {
 
             <div className={styleToMark.calendar}>
             <label htmlFor="calendario"></label>
-            <input type= "date" name="calendario"/> 
+            <input type="date" name="calendario"/> 
           </div>
 
           <div className={styleToMark.time}>
