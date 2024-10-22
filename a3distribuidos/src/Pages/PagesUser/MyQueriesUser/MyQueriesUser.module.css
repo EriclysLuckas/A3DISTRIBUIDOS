@@ -85,6 +85,7 @@
 }
 
 .crm, .time {
-  font-size: 12px;
+  font-size: 12px; 
+  color: #333; 
   margin-top: 4px;
 }
