@@ -44,6 +44,7 @@ export default function HomeUser() {
           <Link to="/cid" className={styleHomeUser.linkAside}>CID</Link>
         </aside>
       )}
+
     </section>
   );
 }

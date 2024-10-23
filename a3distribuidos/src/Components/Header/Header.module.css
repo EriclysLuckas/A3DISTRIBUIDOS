@@ -1,0 +1,10 @@
+.SectionHeader{
+width: 100%;
+height: 15rem;
+position: relative;
+background: #17661b;
+}
+.contentHeader{
+  display: flex;
+  position: absolute;
+}
