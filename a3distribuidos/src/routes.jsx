@@ -19,6 +19,18 @@ const router = createBrowserRouter([
 
     ],
   },
+  {
+    path: "/med",
+    element: <LayoutUser />,
+    children: [
+      { index: true, element: <ToMark /> },
+      {path: "agendar", element: <ToMark />},
+      {path: "minhaconsulta", element: <MyQueriesUser />},
+      {path: "medicamentos", element: <Medicines />},
+      {path: "cid", element: <CidUser />},
+
+    ],
+  },
 ]);
 
 export default router;
