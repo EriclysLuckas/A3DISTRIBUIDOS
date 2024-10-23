@@ -1,11 +1,28 @@
 .SectionHomeUser{
     background-color: rgb(105, 104, 104);
     padding: 1rem;
-    height: 100vh;
     font-size: 2ch;
-  
-    
-}  aside{
+    transition: all 0.3s ease;
+    min-width: 12rem;
+} 
+.sectionOpen {
+    height: 100vh; 
+
+  }
+.closeMenu{
+    position: absolute;
+    right: 5%;
+    top: 2%;
+}
+
+  @media (width < 900px) {
+    .SectionHomeUser{
+     position: absolute;
+     min-width: 80%;
+
+    } 
+  }
+aside{
     display: flex;
     flex-direction: column;
     gap: 2ch;
@@ -18,4 +35,7 @@
             color: #353434;
         }
     }
+}
+.isMobile{
+    height: 5%;
 }
