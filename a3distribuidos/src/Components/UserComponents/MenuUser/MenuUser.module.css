@@ -1,5 +1,5 @@
 .SectionHomeUser{
-    background-color: rgb(105, 104, 104);
+    background-color: var(--verdeEscuro);
     padding: 1rem;
     font-size: 2ch;
     transition: all 0.3s ease;
