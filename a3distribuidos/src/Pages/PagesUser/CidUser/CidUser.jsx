@@ -1,9 +1,9 @@
-
+import styleCidUser from "./CidUser.module.css"
 
 
 
 export default function CidUser() {
     return(
-        <p>CID</p>
+        <p className = {styleCidUser}>CID</p>
     )
 }
