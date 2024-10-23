@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Link } from "react-router-dom"; // Importando Link para navegação
 import styleCidUser from "./CidUser.module.css";
 
