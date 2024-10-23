@@ -1,7 +1,4 @@
-body{
-    background-color: #fff;
-    padding: 0;
-}
+
 .h2{
     padding: 2rem 0;
     margin-top: 20px; 
@@ -11,31 +8,32 @@ body{
 
     
 }
+.Sectioncontainer{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
 .container{
     width: 80%;
-    max-width: 50rem;
-    height: auto;
     display: flex; 
     flex-direction: column; 
-    justify-content: center; 
-    margin: auto; 
+    align-items: center;
     border-radius: 1rem;
-    background-color:#dfdfdf;
+    
 }
 
 .box_container{
-width: 100%;
-display: flex;
-justify-content: center;
+    border-radius: 2ch;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    background-color:#dfdfdf;
+    flex-direction: column;
 }
 
-.dhm{
-    background-color: #dfdfdf;
-    width: 80%;
-}
 .bar{
     padding: 30px;
-    justify-self: center;
     
 }
 
@@ -56,10 +54,6 @@ input {
     color: black;
 }
 
-.list{
-    width: 31.4rem;
-    display: flex;
-}
 
 .box_list{
     min-width: 100%;
