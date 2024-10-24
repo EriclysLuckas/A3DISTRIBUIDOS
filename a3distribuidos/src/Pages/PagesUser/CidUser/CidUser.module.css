@@ -2,7 +2,12 @@
     width: 100%;
     background-color: #f8f8f8;
     padding: 2em;
+    height: 100%;
     color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .backButtonContainer {
@@ -17,14 +22,18 @@
 }
 
 .container {
+    width: 50%;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     background-color: #D9D9D9;
     padding: 2em;
     border-radius: 10px;
-    max-width: 40em;
-    margin: 0 auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: black;
     position: relative;
+    height: 70%;
 }
 
 .header h1 {
@@ -101,16 +110,20 @@
     right: 1em;
 }
 
-.addCid a {
+.addCid button {
     text-decoration: none;
-    color: #4CAF50;
+    color: #f8f8f8;
     font-weight: bold;
-    border: 1px solid #4CAF50;
+    border: 1px solid var(--verdeEscuro);
     padding: 0.3em 0.6em;
     border-radius: 5px;
+    cursor: pointer;
+    background: var(--verdeEscuro);
 }
 
-.addCid a:hover {
-    background-color: #4CAF50;
+.addCid button:hover {
+    background-color: var(--verdeClaro);
     color: white;
+    border: 1px solid var(--verdeClaro);
+
 }

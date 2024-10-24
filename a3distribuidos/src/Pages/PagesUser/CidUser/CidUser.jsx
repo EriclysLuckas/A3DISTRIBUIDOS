@@ -1,8 +1,20 @@
-import  { useState } from "react";
-import { Link } from "react-router-dom"; // Importando Link para navegação
+import { useState } from "react";
 import styleCidUser from "./CidUser.module.css";
+import styleCidCad from "./CidCad.module.css";
+import { FiXCircle  } from "react-icons/fi";
+
+
+
+
+
+
+
 
 export default function CidUser() {
+
+    const [openTrue, setOpenTrue] = useState(false)
+
+
     const [searchTerm, setSearchTerm] = useState("");
     const [cids, setCids] = useState([
         { code: "A00.0", description: "Cólera devido a Vibrio cholerae 01, biótipo cholerae", isFavorite: false },
@@ -31,25 +43,49 @@ export default function CidUser() {
         setCids(updatedCids);
     };
 
+    const openCadCid = () => {
+        setOpenTrue(true);
+        console.log("teste")
+    }
+
+    const closeCadCid = () => {
+        setOpenTrue(false);
+    };
+
+
+
     return (
         <div className={styleCidUser.page}>
-            <div className={styleCidUser.backButtonContainer}>
-                <Link to="/CidCad" className={styleCidUser.backButton}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-double-left" viewBox="0 0 16 16">
-                        <path fillRule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
-                        <path fillRule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 .708 0" />
-                    </svg>
-                </Link>
-            </div>
+
 
             <div className={styleCidUser.container}>
                 <div className={styleCidUser.header}>
                     <h1>CID</h1>
                     <div className={styleCidUser.addCid}>
-                        <Link to="/CidCad">Adicionar CID</Link> {/* Direcionando para a página CidCad */}
+                        <button onClick={openCadCid}>Adicionar CID</button> 
                     </div>
                 </div>
+                {openTrue && (
+                            <div className={styleCidCad.pageModal}>
+                              
+                                <div className={styleCidCad.containerModal}>
+                                <div className={styleCidCad.backButtonContainerModal}>
+                                   <FiXCircle  onClick = {closeCadCid} className = {styleCidCad.closeModal}/>
+                                </div>
+                                    <h1>Cadastrar CID</h1>
+                                    <form className={styleCidCad.formModal}>
+                                        <label htmlFor="codigo">Código</label>
+                                        <input type="text" id="codigo" name="codigo" placeholder="Insira o código" />
+                                        <label htmlFor="cid10">CID</label>
+                                        <input type="text" id="cid10" name="cid10" placeholder="Insira o CID" />
+                                        <label htmlFor="descricao">Descrição</label>
+                                        <textarea id="descricao" name="descricao" placeholder="Descrição"></textarea>
+                                        <button type="submit">Cadastrar</button>
+                                    </form>
+                                </div>
+                            </div>
 
+                        )}
                 <div className={styleCidUser.searchContainer}>
                     <div className={styleCidUser.inputWrapper}>
                         <input

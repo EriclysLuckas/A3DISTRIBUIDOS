@@ -8,7 +8,6 @@ export default function name() {
 
     
 
-      <div className={styleToMark.container}>
         <form className={styleToMark.box_container}>
         <div className={styleToMark.h2}>
         <h2>Agendar Consultas</h2>
@@ -44,7 +43,6 @@ export default function name() {
           </div>
           </form>
       </div>
-    </div>
 
 
 

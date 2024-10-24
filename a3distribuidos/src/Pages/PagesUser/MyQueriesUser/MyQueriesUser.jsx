@@ -11,7 +11,6 @@ export default function MyQueriesUser() {
   ];
 
   return (
-    <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.calendarWrapper}> 
           <h1 className={styles.title}>Minhas Consultas</h1>
@@ -35,6 +34,5 @@ export default function MyQueriesUser() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

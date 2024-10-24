@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styleHomeUser from "./MenuUser.module.css";
 import { Link } from 'react-router-dom';
 import { FiX, FiMenu } from "react-icons/fi";
@@ -17,9 +17,9 @@ export default function HomeUser() {
       setIsMobile(isCurrentlyMobile);
       // Define isOpen com base na largura da janela
       if (isCurrentlyMobile) {
-        setIsOpen(false); 
+        setIsOpen(false);
       } else {
-        setIsOpen(true); 
+        setIsOpen(true);
       }
     };
 
@@ -32,16 +32,19 @@ export default function HomeUser() {
   return (
     <section className={`${styleHomeUser.SectionHomeUser} ${isOpen ? styleHomeUser.sectionOpen : ""}`}>
       {isMobile && (
-        <button onClick={toggleMenu} className={styleHomeUser.toggleButton}>
-          {isOpen ? < FiX className ={styleHomeUser.closeMenu}/> : <FiMenu  />}
+        <div className={styleHomeUser.content}>
+
+          <button onClick={toggleMenu} className={styleHomeUser.toggleButton}>
+            {isOpen ? < FiX className={styleHomeUser.closeMenu} /> : <FiMenu />}
           </button>
+        </div>
       )}
       {(isOpen || !isMobile) && (
         <aside className={styleHomeUser.menuUser}>
-          <Link to="/agendar" className={styleHomeUser.linkAside}>Agendar Consulta</Link>
-          <Link to="/minhaconsulta" className={styleHomeUser.linkAside}>Minhas Consultas</Link>
-          <Link to="/medicamentos" className={styleHomeUser.linkAside}>Medicamentos</Link>
-          <Link to="/cid" className={styleHomeUser.linkAside}>CID</Link>
+          <Link to="/agendar" className={styleHomeUser.linkAside} onClick={toggleMenu}>Agendar Consulta</Link>
+          <Link to="/minhaconsulta" className={styleHomeUser.linkAside} onClick={toggleMenu}>Minhas Consultas</Link>
+          <Link to="/medicamentos" className={styleHomeUser.linkAside} onClick={toggleMenu}>Medicamentos</Link>
+          <Link to="/cid" className={styleHomeUser.linkAside} onClick={toggleMenu}>CID</Link>
         </aside>
       )}
 
