@@ -2,7 +2,7 @@
     position: fixed;
     width: 120vw;
     height: 100vh;
-    background-color: #6964648a; /* Cor de fundo geral da página */
+    background-color: #6964648a; 
     z-index: 2;
     top: 0;
     display: flex;
@@ -57,11 +57,14 @@
     }
     
     textarea[name="descricao"] {
+        background-color: #fff;
         padding: 0.5em 1em;
         height: 7em;
         box-sizing: border-box;
         vertical-align: top;
         resize: none; /* Impede redimensionamento */
+        color: #000000;
+        border: none;
     }
     
     button {

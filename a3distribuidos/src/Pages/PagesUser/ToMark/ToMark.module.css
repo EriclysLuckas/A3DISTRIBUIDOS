@@ -84,10 +84,14 @@ input {
     padding: 14px;
     width: 100%;
     border-radius: 5px;
-    background-color: #6c9f60;
+    background-color: var(--verdeEscuro);
     border: none;
     font-size: 14px;
-
+    cursor: pointer;
+    
+    &:hover{
+        background-color: var(--verdeClaro);
+    }
 }
 
 

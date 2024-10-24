@@ -9,7 +9,7 @@
 }
 
 .calendarWrapper {
-  background-color: #eaeaea;
+  background-color: var(--cinza);
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 80%;
@@ -45,7 +45,7 @@
 }
 
 .dayTitleContainer {
-  background-color: #5c8c84;
+  background-color: var(--verdeEscuro);
   padding: 8px;
   border-radius: 6px;
   margin-bottom: 10px;
@@ -65,7 +65,7 @@
   padding: 12px; 
   border-radius: 6px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #5c8c84;
+  border-left: 4px solid var(--verdeEscuro);
 }
 
 .doctorName {
