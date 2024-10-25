@@ -13,7 +13,7 @@ export default function HomeUser() {
 
   useEffect(() => {
     const handleResize = () => {
-      const isCurrentlyMobile = window.innerWidth <= 900;
+      const isCurrentlyMobile = window.innerWidth <= 1100;
       setIsMobile(isCurrentlyMobile);
       // Define isOpen com base na largura da janela
       if (isCurrentlyMobile) {

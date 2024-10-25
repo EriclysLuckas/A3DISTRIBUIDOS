@@ -3,8 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   padding: 2em;
+  align-self: center;
 }
 
 .calendarWrapper {
