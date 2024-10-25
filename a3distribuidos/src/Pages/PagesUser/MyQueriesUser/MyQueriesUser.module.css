@@ -36,7 +36,7 @@
 }
 
 .dayColumn {
-  background-color: #f4f4f4;
+  background: #fff;
   padding: 10px;
   border-radius: 6px;
   transition: background-color 0.3s ease;
@@ -45,9 +45,6 @@
   overflow-y: auto;
 }
 
-.dayColumn:hover {
-  background-color: #ddd;
-}
 
 .dayTitleContainer {
   background-color: var(--verdeEscuro);
@@ -71,6 +68,9 @@
   border-radius: 6px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-left: 4px solid var(--verdeEscuro);
+  &:hover{
+    background-color: var(--cinza);
+  }
 }
 
 .doctorName {

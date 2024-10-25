@@ -35,12 +35,12 @@ export default function HomeUser() {
         <div className={styleHomeUser.content}>
 
           <button onClick={toggleMenu} className={styleHomeUser.toggleButton}>
-            {isOpen ? < FiX className={styleHomeUser.closeMenu} /> : <FiMenu />}
+            {isOpen ? < FiX className={styleHomeUser.closeMenu} /> : <FiMenu  className = {styleHomeUser.openMenu}/>}
           </button>
         </div>
       )}
       {(isOpen || !isMobile) && (
-        <aside className={styleHomeUser.menuUser}>
+        <aside className={`${styleHomeUser.menuUser} ${isOpen ? styleHomeUser.opemMenu : ''}`}>
           <Link to="/agendar" className={styleHomeUser.linkAside} onClick={toggleMenu}>Agendar Consulta</Link>
           <Link to="/minhaconsulta" className={styleHomeUser.linkAside} onClick={toggleMenu}>Minhas Consultas</Link>
           <Link to="/medicamentos" className={styleHomeUser.linkAside} onClick={toggleMenu}>Medicamentos</Link>
