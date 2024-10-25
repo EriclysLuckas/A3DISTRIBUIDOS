@@ -16,16 +16,13 @@
     right: 5%;
     top: 2%;
 }
-.content{
-    background-color: red;
-}
 
   @media (width < 900px) {
     .SectionHomeUser{
-     position: absolute;
-     min-width: 80%;
+     width: 100%;
 
     } 
+   
   }
 aside{
     display: flex;
@@ -44,3 +41,4 @@ aside{
 .isMobile{
     height: 5%;
 }
+
