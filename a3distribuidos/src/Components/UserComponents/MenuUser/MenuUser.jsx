@@ -45,6 +45,13 @@ export default function HomeUser() {
           <Link to="/minhaconsulta" className={styleHomeUser.linkAside} onClick={toggleMenu}>Minhas Consultas</Link>
           <Link to="/medicamentos" className={styleHomeUser.linkAside} onClick={toggleMenu}>Medicamentos</Link>
           <Link to="/cid" className={styleHomeUser.linkAside} onClick={toggleMenu}>CID</Link>
+          
+          {/* menu momentaneo */}
+
+          <Link to="/cadpac" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cadastrar clientes</Link>
+          <Link to="/enderecopac" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cadastrar endereço</Link>
+
+
         </aside>
       )}
 
