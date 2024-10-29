@@ -48,7 +48,7 @@ export default function HomeUser() {
           
           {/* menu momentaneo */}
           <p> links momentaneos </p>
-          <Link to="/cadpac" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cadastrar clientes</Link>
+          <Link to="/cadpac" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cadastrar Pac</Link>
           <Link to="/enderecopac" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cadastrar endereço</Link>
           <Link to="/bulamedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Bula de Med</Link>
           <Link to="/agendamed" className={styleHomeUser.linkAside} onClick={toggleMenu}> Agendamentos Med</Link>
