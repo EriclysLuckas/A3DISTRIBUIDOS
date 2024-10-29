@@ -1,0 +1,87 @@
+.pageModal {
+  position: fixed;
+  width: 120vw;
+  height: 100vh;
+  background-color: #6964648a; 
+  z-index: 2;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.backButtonContainerModal {
+ position: relative;
+ width: 100%;
+ height: 100%;
+}
+.closeModal{
+  position: absolute;
+  color: var(--verdeEscuro);
+  right: -10%;
+  cursor: pointer;
+  font-size: 3ch;
+}
+
+.containerModal {
+  width: 40em;
+  margin: 0 auto; /* Centraliza o container */
+  padding: 3em 6em;
+  background-color: #D9D9D9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  h1 {
+      margin-bottom: 1em;
+      color: #333;
+  }
+}
+
+
+
+.formModal {
+  display: flex;
+  flex-direction: column;
+  label {
+      margin-bottom: 0.8em;
+      color: #333;
+      text-align: left;
+  }
+  
+  input {
+      margin-bottom: 1em;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+  
+  textarea[name="descricao"] {
+      background-color: #fff;
+      padding: 0.5em 1em;
+      height: 7em;
+      box-sizing: border-box;
+      vertical-align: top;
+      resize: none; /* Impede redimensionamento */
+      color: #000000;
+      border: none;
+  }
+  
+  button {
+      padding: 0.6em;
+      width: 40%;
+      background-color: var(--verdeEscuro);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: block;
+      margin: 4em auto 0em;
+  }
+  
+  button:hover {
+      background-color: var(--verdeClaro);
+  }
+  
+}
+

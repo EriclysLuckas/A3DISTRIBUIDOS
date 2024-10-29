@@ -7,6 +7,13 @@ import Medicines from './Pages/PagesUser/Medicines/Medicines.jsx';
 import CidUser from './Pages/PagesUser/CidUser/cidUser.jsx';
 import CadastroPac from "../src/Pages/PagesUser/CadastroPac/CadastroPac.jsx";
 import EnderecoPac from "../src/Pages/PagesUser/EnderecoPac/EnderecoPac.jsx";
+import AgendamentosMed from "../src/Pages/PagesAdm/AgendamentosMed/AgendamentosMed.jsx"
+import MedCid from "../src/Pages/PagesAdm/MedCid/MedCid.jsx"
+import MedBula from "../src/Pages/PagesAdm/MedBula/MedBula.jsx"
+
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -23,7 +30,9 @@ const router = createBrowserRouter([
       // rotas momentaneas 
       {path: "cadpac", element: <CadastroPac />},
       {path: "enderecopac", element: <EnderecoPac />},
-   
+      {path: "bulamedico", element: <MedBula />},
+      {path: "agendamed", element: <AgendamentosMed/>},
+      {path: "medcid", element: <MedCid />},
 
 
     ],
