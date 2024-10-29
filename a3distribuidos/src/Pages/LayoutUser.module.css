@@ -1,5 +1,10 @@
 .SectionLayout{
 display: flex;
-flex-direction: row;
 height: 100vh;
+}
+
+@media (width < 1100px) {
+  .SectionLayout{
+    flex-direction: column;
+  }
 }

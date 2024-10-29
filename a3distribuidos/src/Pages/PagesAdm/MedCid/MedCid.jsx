@@ -1,18 +1,11 @@
-import { useState } from "react";
-import styleCidUser from "./CidUser.module.css";
-import styleCidCad from "./CidCad.module.css";
+import styleMedCid from "./MedCid.module.css"
+import styleMedCidCad from "./MedCidCad.module.css"
 import { FiXCircle  } from "react-icons/fi";
 
+import { useState } from "react";
 
-
-
-
-
-
-
-export default function CidUser() {
-
-    const [openTrue, setOpenTrue] = useState(false)
+export default function MedCid() {
+  const [openTrue, setOpenTrue] = useState(false)
 
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -55,25 +48,25 @@ export default function CidUser() {
 
 
     return (
-        <div className={styleCidUser.page}>
+        <div className={styleMedCid.page}>
 
 
-            <div className={styleCidUser.container}>
-                <div className={styleCidUser.header}>
+            <div className={styleMedCid.container}>
+                <div className={styleMedCid.header}>
                     <h1>CID</h1>
-                    <div className={styleCidUser.addCid}>
+                    <div className={styleMedCid.addCid}>
                         <button onClick={openCadCid}>Adicionar CID</button> 
                     </div>
                 </div>
                 {openTrue && (
-                            <div className={styleCidCad.pageModal}>
+                            <div className={styleMedCidCad.pageModal}>
                               
-                                <div className={styleCidCad.containerModal}>
-                                <div className={styleCidCad.backButtonContainerModal}>
-                                   <FiXCircle  onClick = {closeCadCid} className = {styleCidCad.closeModal}/>
+                                <div className={styleMedCidCad.containerModal}>
+                                <div className={styleMedCidCad.backButtonContainerModal}>
+                                   <FiXCircle  onClick = {closeCadCid} className = {styleMedCidCad.closeModal}/>
                                 </div>
                                     <h1>Cadastrar CID</h1>
-                                    <form className={styleCidCad.formModal}>
+                                    <form className={styleMedCidCad.formModal}>
                                         <label htmlFor="codigo">Código</label>
                                         <input type="text" id="codigo" name="codigo" placeholder="Insira o código" />
                                         <label htmlFor="cid10">CID</label>
@@ -86,26 +79,26 @@ export default function CidUser() {
                             </div>
 
                         )}
-                <div className={styleCidUser.searchContainer}>
-                    <div className={styleCidUser.inputWrapper}>
+                <div className={styleMedCid.searchContainer}>
+                    <div className={styleMedCid.inputWrapper}>
                         <input
                             type="text"
                             placeholder="A00"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
-                        <svg className={styleCidUser.searchIcon} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <svg className={styleMedCid.searchIcon} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85zm-5.44.856a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z" />
                         </svg>
                     </div>
                 </div>
-                <div className={styleCidUser.cidList}>
+                <div className={styleMedCid.cidList}>
                     {filteredCids.map((cid, index) => (
-                        <div key={cid.code} className={styleCidUser.cidItem}>
-                            <span className={styleCidUser.cidCode}>{cid.code}</span>
-                            <span className={styleCidUser.cidDescription}>{cid.description}</span>
+                        <div key={cid.code} className={styleMedCid.cidItem}>
+                            <span className={styleMedCid.cidCode}>{cid.code}</span>
+                            <span className={styleMedCid.cidDescription}>{cid.description}</span>
                             <button
-                                className={styleCidUser.favoriteButton}
+                                className={styleMedCid.favoriteButton}
                                 onClick={() => toggleFavorite(index)}
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

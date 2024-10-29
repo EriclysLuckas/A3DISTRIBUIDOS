@@ -1,0 +1,12 @@
+.sectionHeader{
+width: 100%;
+height: 5rem;
+position: relative;
+background: var(--verdeEscuro);
+
+}
+.contentHeader{
+  display: flex;
+  position: absolute;
+  
+}

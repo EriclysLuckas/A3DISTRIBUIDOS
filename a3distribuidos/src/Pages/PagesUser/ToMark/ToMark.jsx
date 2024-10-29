@@ -4,15 +4,14 @@ import styleToMark from "./ToMark.module.css";
 export default function name() {
 
   return (
-    <div className={styleToMark.container}>
+    <div className={styleToMark.Sectioncontainer}>
 
-      <div className={styleToMark.h2}>
+    
+
+        <form className={styleToMark.box_container}>
+        <div className={styleToMark.h2}>
         <h2>Agendar Consultas</h2>
       </div>
-
-      <div className={styleToMark.container}>
-        <form className={styleToMark.box_container}>
-
            <div className={styleToMark.dhm}>
             <div className={styleToMark.bar}>
 
@@ -44,7 +43,6 @@ export default function name() {
           </div>
           </form>
       </div>
-    </div>
 
 
 

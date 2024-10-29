@@ -36,6 +36,10 @@ export default function CadastroPac() {
                   <label htmlFor="Data de Nascimento"></label>
                   <input type="text" name="Data de Nascimento" placeholder="Data de Nascimento" required/>
                 </div>
+                <div className={styleCadastroPac.especialidade}>
+                  <label htmlFor="Especialidade"></label>
+                  <input type="text" name="Especialidade" placeholder="Especialidade" required/>
+                </div>
 
                 <div className={styleCadastroPac.button}>
                   <button className={styleCadastroPac.btn}>Cadastrar</button>

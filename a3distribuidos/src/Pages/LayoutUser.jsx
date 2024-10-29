@@ -7,7 +7,6 @@ export default function LayoutUser() {
     return(
         <section className={styleLayout.SectionLayout}>
              <MenuUser />  
-                    
               <Outlet />
         </section>
     )
