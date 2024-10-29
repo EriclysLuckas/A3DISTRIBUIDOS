@@ -35,7 +35,7 @@ export default function HomeUser() {
         <div className={styleHomeUser.content}>
 
           <button onClick={toggleMenu} className={styleHomeUser.toggleButton}>
-            {isOpen ? < FiX className={styleHomeUser.closeMenu} /> : <FiMenu  className = {styleHomeUser.openMenu}/>}
+            {isOpen ? < FiX className={styleHomeUser.closeXMenu} /> : <FiMenu  className = {styleHomeUser.openMenu}/>}
           </button>
         </div>
       )}
