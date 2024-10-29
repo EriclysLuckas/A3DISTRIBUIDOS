@@ -1,0 +1,110 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding: 2em;
+    align-self: center;
+  }
+  
+  .calendarWrapper {
+    background-color: var(--cinza);
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height: 100%;
+    padding: 2em;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .calendar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 30px;
+    overflow-x: auto;
+  }
+  
+  .dayColumn {
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    width: 25%;
+    height: 80%;
+    overflow-y: auto;
+  }
+  
+  .dayTitleContainer {
+    background-color: var(--verdeEscuro);
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .dayTitle {
+    color: #fff;
+    font-size: 16px; 
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .appointment {
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 12px; 
+    border-radius: 6px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--verdeEscuro);
+    transition: background-color 0.3s ease;
+  }
+  
+  .appointment:hover {
+    background-color: var(--cinza);
+  }
+  
+  .patientName {
+    font-size: 14px; 
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .time {
+    font-size: 12px; 
+    color: #333; 
+    margin-top: 4px;
+  }
+  
+  @media (width < 1500px) {
+   .calendarWrapper {
+    width: 100%;
+   }
+  }
+  @media (width < 900px) {
+    .calendarWrapper {
+     width: 100%;
+     height: 100%;
+     overflow-y: auto;
+    }
+    .calendar {
+      display: flex;
+      flex-direction: column;
+    }
+    .dayColumn {
+      width: 100%;
+      height: auto;
+    }
+    .content {
+      padding: 0;
+    }
+  }
+  
