@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styleHomeUser from "./MenuUser.module.css";
 import { Link } from 'react-router-dom';
 import { FiX, FiMenu } from "react-icons/fi";
+import Header from '../../Header/Header';
 
 export default function HomeUser() {
   const [isOpen, setIsOpen] = useState(true);
@@ -56,6 +57,10 @@ export default function HomeUser() {
 
 
         </aside>
+      )}
+      {(isMobile) && (
+
+        <Header />
       )}
 
     </section>
