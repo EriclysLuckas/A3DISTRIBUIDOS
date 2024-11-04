@@ -1,7 +1,55 @@
+import React from 'react';
+import styles from './Medicines.module.css';
+
 export default function Medicines() {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        form.submit();
+    };
 
-return(
-    <p>Tela de Medicamentos</p>
+    return (
+        <div className={styles.formWrapper}>
+            <h2 className={styles.formTitle}>Receitar Medicamento</h2>
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <div className={styles.inputGroup}>
+                    <label htmlFor="paciente" className={styles.label}>Paciente</label>
+                    <select
+                        id="paciente"
+                        name="paciente"
+                        className={styles.selectField}
+                    >
+                        <option value="">Selecione um paciente</option>
+                        <option value="João">João</option>
+                        <option value="Maria">Maria</option>
+                        <option value="Jacinto">Jacinto</option>
+                        <option value="Manoel">Manoel</option>
+                    </select>
+                </div>
 
-)
-}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="medicamento" className={styles.label}>Medicamento</label>
+                    <input
+                        type="text"
+                        id="medicamento"
+                        name="medicamento"
+                        className={styles.inputField}
+                        placeholder="Adicione um Medicamento"
+                    />
+                </div>
+
+                <div className={styles.inputGroup}>
+                    <label htmlFor="observacoes" className={styles.label}>Observações</label>
+                    <textarea
+                        id="observacoes"
+                        name="observacoes"
+                        className={styles.textareaField}
+                        placeholder="Adicione uma observação"
+                    />
+                </div>
+
+                <button type="submit" className={styles.submitButton}>Receitar</button>
+            </form>
+        </div>
+    );
+};
