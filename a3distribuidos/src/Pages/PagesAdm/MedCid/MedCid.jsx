@@ -4,8 +4,11 @@ import { FiXCircle  } from "react-icons/fi";
 import useBaseContext from "../../../Hooks/useBaseContext";
 
 import { useState } from "react";
+import MedCadModal from "./medcadmodal";
 
 export default function MedCid() {
+
+  
     const [openTrue, setOpenTrue] = useState(false);  // Estado para controlar a visibilidade do modal
     const [searchTerm, setSearchTerm] = useState("");  // Estado para filtro de pesquisa
   
@@ -51,23 +54,7 @@ export default function MedCid() {
   
           {/* Modal de cadastro */}
           {openTrue && (
-            <div className={styleMedCidCad.pageModal}>
-              <div className={styleMedCidCad.containerModal}>
-                <div className={styleMedCidCad.backButtonContainerModal}>
-                  <FiXCircle onClick={closeCadCid} className={styleMedCidCad.closeModal} />
-                </div>
-                <h1>Cadastrar CID</h1>
-                <form className={styleMedCidCad.formModal}>
-                  <label htmlFor="codigo">Código</label>
-                  <input type="text" id="codigo" name="codigo" placeholder="Insira o código" />
-                  <label htmlFor="cid10">CID</label>
-                  <input type="text" id="cid10" name="cid10" placeholder="Insira o CID" />
-                  <label htmlFor="descricao">Descrição</label>
-                  <textarea id="descricao" name="descricao" placeholder="Descrição"></textarea>
-                  <button type="submit">Cadastrar</button>
-                </form>
-              </div>
-            </div>
+           <MedCadModal closeCadCid={closeCadCid}/>
           )}
   
           {/* Filtro de busca */}
