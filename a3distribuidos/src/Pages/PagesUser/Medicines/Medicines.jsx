@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Medicines.module.css';
 
 export default function Medicines() {
