@@ -8,9 +8,7 @@ export default function useUtils() {
     try {
       const response = await fetch("http://localhost:3000/api/cids");
       const jsonCids = await response.json();
-
       console.log('Resposta da API:', jsonCids);  // Verifique aqui como os dados estão sendo retornados
-
       setBase(jsonCids);  // Atualiza o estado com os dados da API
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
@@ -80,6 +78,25 @@ export default function useUtils() {
     }
   };
 
+  // Função para alternar o status de favorito de um CID
+  const toggleFavorite = async (cid) => {
+    const updatedCid = { ...cid, isFavorite: !cid.isFavorite };
+
+    try {
+      // Envia a alteração para o servidor
+      await fetch(`http://localhost:3000/api/cids/${cid.code}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedCid), // Envia o CID atualizado
+      });
+      fetchData(); // Atualiza a lista de CIDs após a alteração
+    } catch (error) {
+      console.error('Erro ao favoritar CID:', error);
+    }
+  };
+
   // Retorna todas as funções e o estado
-  return { base, addCid, deleteCid, getCidById, updateCid };
+  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite };
 }
