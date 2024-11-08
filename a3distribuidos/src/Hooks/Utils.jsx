@@ -7,7 +7,7 @@ export default function useUtils() {
 
 
   const [base, setBase] = useState([]);                                          // Estado para armazenar os dados de cids
-
+  const [baseClinica, setBaseClinica] = useState([])
                                                                                  // Função para buscar dados de cids
   const fetchData = async () => {
     try {
@@ -102,6 +102,34 @@ export default function useUtils() {
     }
   };
 
-                                                                                  // Retorna todas as funções e o estado
-  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite };
+         
+  //================================= API CLINICA =================================  
+  
+  
+  
+  const fetchDataClinica = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/cids");
+      const jsonCids = await response.json();
+      console.log('Resposta da API:', jsonCids);                                  // Verifique aqui como os dados estão sendo retornados
+      setBaseClinica(jsonCids);                                                          // Atualiza o estado com os dados da API
+    } catch (error) {
+      console.error("Erro ao buscar dados:", error);
+      setBaseClinica([]);                                                                // Se houver erro, define base como array vazio
+    }
+  };
+
+  useEffect(() => {
+    fetchDataClinica();
+  }, []);  
+  
+  
+  
+  
+  
+  
+  
+  
+  // Retorna todas as funções e o estado
+  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite, baseClinica };
 }
