@@ -6,14 +6,18 @@ import useBaseContext from "../../../Hooks/useBaseContext";
 export default function CidUser() {
   const [searchTerm, setSearchTerm] = useState("");  // Estado para filtro de pesquisa
 
-  const { base } = useBaseContext();  // Acessa o contexto com o estado `base` e a função `setBase`
+  const { base } = useBaseContext(); //chama a base 
 
-  // Verifica se `base` está carregado
+//Aqui será para evitar o erro de usar o base antes dele carregar
+//incluindo essa consulta se base é verdadeiro 
   if (!base) {
     return <p>Carregando...</p>;
   }
 
   const cids = base?.cids ?? [];  // Garante que estamos acessando a lista de CIDs
+
+
+
 
   // Lógica de filtro dos CIDs
   const filteredCids = cids
@@ -25,7 +29,6 @@ export default function CidUser() {
 
  
 
-  // Função para abrir o modal de cadastro
 
 
   return (
@@ -54,7 +57,7 @@ export default function CidUser() {
 
         {/* Lista de CIDs */}
         <div className={styleCidUser.cidList}>
-          {filteredCids.map((cid) => (
+          {filteredCids.map((cid) => ( //aqui conseguimos dá um map para listar as cids podendo listar por div, lista, o tabela
             <div key={cid.code} className={styleCidUser.cidItem}>
               <span className={styleCidUser.cidCode}>{cid.code}</span>
               <span className={styleCidUser.cidDescription}>{cid.description}</span>
