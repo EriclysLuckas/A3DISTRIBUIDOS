@@ -1,11 +1,9 @@
 import { useState } from "react";
 import styleCidUser from "./CidUser.module.css";
-import styleCidCad from "./CidCad.module.css";
-import { FiXCircle } from "react-icons/fi";
+
 import useBaseContext from "../../../Hooks/useBaseContext";
 
 export default function CidUser() {
-  const [openTrue, setOpenTrue] = useState(false);  // Estado para controlar a visibilidade do modal
   const [searchTerm, setSearchTerm] = useState("");  // Estado para filtro de pesquisa
 
   const { base } = useBaseContext();  // Acessa o contexto com o estado `base` e a função `setBase`
@@ -28,47 +26,17 @@ export default function CidUser() {
  
 
   // Função para abrir o modal de cadastro
-  const openCadCid = () => {
-    setOpenTrue(true);  // Define o estado `openTrue` como `true` para abrir o modal
-  };
 
-  // Função para fechar o modal de cadastro
-  const closeCadCid = () => {
-    setOpenTrue(false);  // Define o estado `openTrue` como `false` para fechar o modal
-  };
 
   return (
     <div className={styleCidUser.page}>
       <div className={styleCidUser.container}>
         <div className={styleCidUser.header}>
           <h1>CID</h1>
-          <div className={styleCidUser.addCid}>
-            {/* O modal de cadastro será aberto ao clicar nesse botão */}
-            <button onClick={openCadCid}>Adicionar CID</button>
-          </div>
+         
         </div>
 
-        {/* Modal de cadastro */}
-        {openTrue && (
-          <div className={styleCidCad.pageModal}>
-            <div className={styleCidCad.containerModal}>
-              <div className={styleCidCad.backButtonContainerModal}>
-                <FiXCircle onClick={closeCadCid} className={styleCidCad.closeModal} />
-              </div>
-              <h1>Cadastrar CID</h1>
-              <form className={styleCidCad.formModal}>
-                <label htmlFor="codigo">Código</label>
-                <input type="text" id="codigo" name="codigo" placeholder="Insira o código" />
-                <label htmlFor="cid10">CID</label>
-                <input type="text" id="cid10" name="cid10" placeholder="Insira o CID" />
-                <label htmlFor="descricao">Descrição</label>
-                <textarea id="descricao" name="descricao" placeholder="Descrição"></textarea>
-                <button type="submit">Cadastrar</button>
-              </form>
-            </div>
-          </div>
-        )}
-
+        
         {/* Filtro de busca */}
         <div className={styleCidUser.searchContainer}>
           <div className={styleCidUser.inputWrapper}>
