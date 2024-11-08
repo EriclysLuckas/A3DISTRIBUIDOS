@@ -25,23 +25,7 @@ export default function CidUser() {
     )
     .sort((a, b) => (b.isFavorite ? 1 : 0) - (a.isFavorite ? 1 : 0));  // Ordena CIDs favoritos primeiro
 
-  // Função para alternar o status de favorito
-  const toggleFavorite = (index) => {
-    const updatedCids = [...cids];  // Cria uma cópia da lista de CIDs
-    const cidToToggle = updatedCids[index];  // Obtém o CID que será alterado
-
-    // Verifica se o CID já é favorito e alterna seu estado
-    cidToToggle.isFavorite = !cidToToggle.isFavorite;
-
-    // Se favoritar, move para o topo
-    if (cidToToggle.isFavorite) {
-      updatedCids.splice(index, 1);  // Remove da posição original
-      updatedCids.unshift(cidToToggle);  // Adiciona no topo
-    }
-
-    // Atualiza o estado do contexto com a lista modificada
-    setBase({ cids: updatedCids });
-  };
+ 
 
   // Função para abrir o modal de cadastro
   const openCadCid = () => {
