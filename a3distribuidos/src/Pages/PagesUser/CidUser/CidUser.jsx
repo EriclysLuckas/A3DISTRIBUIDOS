@@ -8,7 +8,7 @@ export default function CidUser() {
   const [openTrue, setOpenTrue] = useState(false);  // Estado para controlar a visibilidade do modal
   const [searchTerm, setSearchTerm] = useState("");  // Estado para filtro de pesquisa
 
-  const { base, setBase } = useBaseContext();  // Acessa o contexto com o estado `base` e a função `setBase`
+  const { base } = useBaseContext();  // Acessa o contexto com o estado `base` e a função `setBase`
 
   // Verifica se `base` está carregado
   if (!base) {
