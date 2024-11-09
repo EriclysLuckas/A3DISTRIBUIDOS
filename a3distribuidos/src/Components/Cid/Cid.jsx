@@ -1,7 +1,6 @@
+import styleCidUser from "../Cid/Cid.module.css";
 import { useState } from "react";
-import styleCidUser from "./CidUser.module.css";
-
-import useBaseContext from "../../../Hooks/useBaseContext";
+import useBaseContext from "../../Hooks/useBaseContext";
 
 export default function CidUser() {
   const [searchTerm, setSearchTerm] = useState("");  // Estado para filtro de pesquisa
