@@ -5,7 +5,7 @@ export default function useUtils() {
 
   // =====================  API CID ===============================
 
-
+  const [agendamentos, setAgendamentos] = useState([]);  
   const [base, setBase] = useState([]);                                          // Estado para armazenar os dados de cids
   const [medicos, setMedicos] = useState([]);  // Estado para armazenar dados de clínicas
   // Função para buscar dados de cids
@@ -126,7 +126,31 @@ useEffect(() => {
   fetchMedicos();  // Carrega os dados de médicos
 }, []);
   
- 
+
+
+
+//============================ AGENDAMENTOS =========================
+const fetchAgendamentos = async () => {
+  try {
+    const response = await fetch("http://localhost:4000/api/agendamentos");
+
+    if (!response.ok) {  // Verifica se a resposta foi bem-sucedida
+      throw new Error(`Erro HTTP! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    setAgendamentos(data);  // Atualiza o estado com dados de médicos
+  } catch (error) {
+    console.error("Erro ao buscar médicos:", error);
+    setAgendamentos([]);  // Caso ocorra erro, limpa o estado
+  }
+};
+
+useEffect(() => {
+  fetchData();  // Carrega os dados de CIDs
+  fetchMedicos();  // Carrega os dados de médicos
+  fetchAgendamentos()
+}, []);
   
 const novaConsulta = async (consultaData) => {
   try {
@@ -159,5 +183,5 @@ const novaConsulta = async (consultaData) => {
   
   
   // Retorna todas as funções e o estado
-  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite,medicos, novaConsulta};
+  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite,medicos, novaConsulta,agendamentos};
 }
