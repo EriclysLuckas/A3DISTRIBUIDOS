@@ -1,14 +1,14 @@
 import styleCidUser from "../Cid/Cid.module.css";
 import { useState } from "react";
-import useBaseContext from "../../Hooks/useBaseContext";
+import useBaseContext from "../../Hooks/UseBaseContext";
 
 export default function CidUser() {
   const [searchTerm, setSearchTerm] = useState("");  // Estado para filtro de pesquisa
 
   const { base } = useBaseContext(); //chama a base 
 
-//Aqui será para evitar o erro de usar o base antes dele carregar
-//incluindo essa consulta se base é verdadeiro 
+  //Aqui será para evitar o erro de usar o base antes dele carregar
+  //incluindo essa consulta se base é verdadeiro 
   if (!base) {
     return <p>Carregando...</p>;
   }
@@ -26,7 +26,7 @@ export default function CidUser() {
     )
     .sort((a, b) => (b.isFavorite ? 1 : 0) - (a.isFavorite ? 1 : 0));  // Ordena CIDs favoritos primeiro
 
- 
+
 
 
 
@@ -35,10 +35,10 @@ export default function CidUser() {
       <div className={styleCidUser.container}>
         <div className={styleCidUser.header}>
           <h1>CID</h1>
-         
+
         </div>
 
-        
+
         {/* Filtro de busca */}
         <div className={styleCidUser.searchContainer}>
           <div className={styleCidUser.inputWrapper}>
@@ -60,7 +60,7 @@ export default function CidUser() {
             <div key={cid.code} className={styleCidUser.cidItem}>
               <span className={styleCidUser.cidCode}>{cid.code}</span>
               <span className={styleCidUser.cidDescription}>{cid.description}</span>
-              
+
             </div>
           ))}
         </div>

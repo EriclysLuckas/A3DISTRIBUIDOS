@@ -7,13 +7,13 @@ export default function useUtils() {
 
 
   const [base, setBase] = useState([]);                                          // Estado para armazenar os dados de cids
-  const [baseClinica, setBaseClinica] = useState([])
-                                                                                 // Função para buscar dados de cids
+  const [medicos, setMedicos] = useState([]);  // Estado para armazenar dados de clínicas
+  // Função para buscar dados de cids
   const fetchData = async () => {
     try {
       const response = await fetch("http://localhost:3000/api/cids");
       const jsonCids = await response.json();
-      console.log('Resposta da API:', jsonCids);                                  // Verifique aqui como os dados estão sendo retornados
+      // console.log('Resposta da API:', jsonCids);                                  // Verifique aqui como os dados estão sendo retornados
       setBase(jsonCids);                                                          // Atualiza o estado com os dados da API
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
@@ -105,31 +105,59 @@ export default function useUtils() {
          
   //================================= API CLINICA =================================  
   
-  
-  
-  const fetchDataClinica = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/api/cids");
-      const jsonCids = await response.json();
-      console.log('Resposta da API:', jsonCids);                                  // Verifique aqui como os dados estão sendo retornados
-      setBaseClinica(jsonCids);                                                          // Atualiza o estado com os dados da API
-    } catch (error) {
-      console.error("Erro ao buscar dados:", error);
-      setBaseClinica([]);                                                                // Se houver erro, define base como array vazio
-    }
-  };
+  const fetchMedicos = async () => {
+  try {
+    const response = await fetch("http://localhost:4000/api/medicos");
 
-  useEffect(() => {
-    fetchDataClinica();
-  }, []);  
+    if (!response.ok) {  // Verifica se a resposta foi bem-sucedida
+      throw new Error(`Erro HTTP! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    setMedicos(data);  // Atualiza o estado com dados de médicos
+  } catch (error) {
+    console.error("Erro ao buscar médicos:", error);
+    setMedicos([]);  // Caso ocorra erro, limpa o estado
+  }
+};
+
+useEffect(() => {
+  fetchData();  // Carrega os dados de CIDs
+  fetchMedicos();  // Carrega os dados de médicos
+}, []);
   
+ 
   
-  
-  
+const novaConsulta = async (consultaData) => {
+  try {
+    const response = await fetch("http://localhost:4000/api/agendamentos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(consultaData),
+    });
+
+    // Verifica se a resposta foi bem-sucedida (status HTTP 2xx)
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log("Consulta agendada com sucesso!", responseData);
+      return { success: true, data: responseData };  // Retorna sucesso com dados
+    } else {
+      const errorData = await response.json();
+      console.error("Erro ao enviar os dados:", errorData);
+      return { success: false, error: errorData }; // Retorna erro com dados de erro
+    }
+  } catch (error) {
+    console.error("Erro ao enviar os dados:", error);
+    return { success: false, error: error.message || error };  // Retorna erro com dados do erro
+  }
+};
+
   
   
   
   
   // Retorna todas as funções e o estado
-  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite, baseClinica };
+  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite,medicos, novaConsulta};
 }

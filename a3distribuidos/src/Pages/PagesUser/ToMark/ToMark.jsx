@@ -1,56 +1,124 @@
 import styleToMark from "./ToMark.module.css";
+import UseBaseContext from "../../../Hooks/UseBaseContext";
+import { useState } from "react";
 
 
-export default function name() {
+export default function ToMark() {
+
+  const { medicos,novaConsulta } = UseBaseContext(); //chama a base 
+
+  const [formAgendamento, setFormAgendamento] = useState({
+    paciente_id: "", // Você pode definir esse valor ao buscar o paciente ou mantê-lo fixo
+    medico_id: "",
+    data: "", // Para armazenar a data
+    hora: "", // Para armazenar a hora
+    notificacao_paciente: true,
+    notificacao_medico: true,
+    endereco: "",
+  });
+
+  // Função para lidar com as mudanças de input
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormAgendamento((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+  
+    // Validação de data e hora
+    if (!formAgendamento.data || !formAgendamento.hora) {
+      console.error("Data e hora são obrigatórios.");
+      return;
+    }
+  
+    // Concatenando data e hora
+    const data_hora = `${formAgendamento.data}T${formAgendamento.hora}:00`; // Formato: YYYY-MM-DDTHH:mm:ss
+  
+    // Criando os dados da consulta
+    const consultaData = {
+      paciente_id: "faf84caf-1aed-4067-b13d-9fc35022661e",  // Exemplo de paciente_id
+      medico_id: formAgendamento.medico_id,
+      data_hora: data_hora,
+      notificacao_paciente: formAgendamento.notificacao_paciente,
+      notificacao_medico: formAgendamento.notificacao_medico,
+      endereco: formAgendamento.endereco,
+    };
+  
+    // Chama a função novaConsulta
+    const result = await novaConsulta(consultaData);
+  
+    // Verifica se a consulta foi agendada com sucesso
+    if (result.success) {
+      console.log("Consulta agendada com sucesso!");
+      alert("Consulta agendada com sucesso!");
+    } else {
+      console.error("Erro ao agendar consulta:", result.error);
+      alert("Houve um erro ao tentar agendar a consulta. Tente novamente.");
+    }
+  };
 
   return (
     <div className={styleToMark.Sectioncontainer}>
-
-    
-
-        <form className={styleToMark.box_container}>
+      <form onSubmit={onSubmit} className={styleToMark.box_container}>
         <div className={styleToMark.h2}>
-        <h2>Agendar Consultas</h2>
-      </div>
-           <div className={styleToMark.dhm}>
-            <div className={styleToMark.bar}>
+          <h2>Agendar Consulta</h2>
+        </div>
 
+        <div className={styleToMark.dhm}>
+          <div className={styleToMark.bar}>
             <div className={styleToMark.calendar}>
-            <label htmlFor="calendario"></label>
-            <input type="date" name="calendario"/> 
-          </div>
-
-          <div className={styleToMark.time}>
-          <label htmlFor="hora"></label>
-          <input type="time" name="hora"/>
-          </div>
-
-          <div className={styleToMark.list}>
-           <label htmlFor="Medicos"></label>
-            <select name="Medicos" className={styleToMark.box_list}>
-              <option value="aleatorio">Médicos</option>
-              <option value="aleatorio">#</option>
-              <option value="aleatorio">#</option>
-            </select>
+              <label htmlFor="data">Data</label>
+              <input
+                type="date"
+                name="data"
+                value={formAgendamento.data}
+                onChange={handleChange}
+              />
             </div>
-    
+
+            <div className={styleToMark.time}>
+              <label htmlFor="hora">Hora</label>
+              <input
+                type="time"
+                name="hora"
+                value={formAgendamento.hora}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className={styleToMark.list}>
+              <label htmlFor="medico_id">Médico</label>
+              <select
+                name="medico_id"
+                value={formAgendamento.medico_id}
+                onChange={handleChange}
+                className={styleToMark.box_list}
+              >
+                <option value="">Selecione um Médico</option>
+                {medicos && medicos.length > 0 ? (
+                  medicos.map((medico) => (
+                    <option key={medico.id} value={medico.id}>
+                      {medico.nome}
+                    </option>
+                  ))
+                ) : (
+                  <option disabled>Não há médicos disponíveis</option>
+                )}
+              </select>
+            </div>
           </div>
 
           <div className={styleToMark.button}>
-            <button className={styleToMark.btn}>Marcar</button>
+            <button type="submit" className={styleToMark.btn}>
+              Agendar Consulta
+            </button>
           </div>
-
-          </div>
-          </form>
-      </div>
-
-
-
-
+        </div>
+      </form>
+    </div>
   );
-
-    
-    
-  
- 
 }
