@@ -1,9 +1,4 @@
-body {
-    background-color: #ffffff; 
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+
 
 .formWrapper {
     height: auto;
@@ -11,10 +6,14 @@ body {
     padding: 30px;
     width: 80%;
     max-width: 400px;
-    margin: 50px auto;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    margin-top: 22vh;
+    position: relative;
+}
+.closeModal{
+    position: absolute;
+    right: 5%;
+    color: #04544c;
 }
 
 .formTitle {

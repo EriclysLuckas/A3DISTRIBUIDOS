@@ -2,10 +2,9 @@ import styleToMark from "./ToMark.module.css";
 import UseBaseContext from "../../../Hooks/UseBaseContext";
 import { useState } from "react";
 
-
 export default function ToMark() {
 
-  const { medicos,novaConsulta } = UseBaseContext(); //chama a base 
+  const { consultas,setConsultas } = UseBaseContext(); //chama a base 
 
   const [formAgendamento, setFormAgendamento] = useState({
     paciente_id: "", // Você pode definir esse valor ao buscar o paciente ou mantê-lo fixo
@@ -14,7 +13,6 @@ export default function ToMark() {
     hora: "", // Para armazenar a hora
     notificacao_paciente: true,
     notificacao_medico: true,
-    endereco: "",
   });
 
   // Função para lidar com as mudanças de input
@@ -45,16 +43,23 @@ export default function ToMark() {
       data_hora: data_hora,
       notificacao_paciente: formAgendamento.notificacao_paciente,
       notificacao_medico: formAgendamento.notificacao_medico,
-      endereco: formAgendamento.endereco,
     };
   
-    // Chama a função novaConsulta
-    const result = await novaConsulta(consultaData);
+    // Chama a função setConsultas
+    const result = await setConsultas(consultaData);
   
     // Verifica se a consulta foi agendada com sucesso
     if (result.success) {
       console.log("Consulta agendada com sucesso!");
       alert("Consulta agendada com sucesso!");
+      setFormAgendamento({
+        paciente_id: "", 
+        medico_id: "",
+        data: "", 
+        hora: "", 
+        notificacao_paciente: true,
+        notificacao_medico: true,
+      })
     } else {
       console.error("Erro ao agendar consulta:", result.error);
       alert("Houve um erro ao tentar agendar a consulta. Tente novamente.");
@@ -99,8 +104,8 @@ export default function ToMark() {
                 className={styleToMark.box_list}
               >
                 <option value="">Selecione um Médico</option>
-                {medicos && medicos.length > 0 ? (
-                  medicos.map((medico) => (
+                {consultas && consultas.length > 0 ? (
+                  consultas.map((medico) => (
                     <option key={medico.id} value={medico.id}>
                       {medico.nome}
                     </option>
@@ -111,6 +116,7 @@ export default function ToMark() {
               </select>
             </div>
           </div>
+
 
           <div className={styleToMark.button}>
             <button type="submit" className={styleToMark.btn}>
