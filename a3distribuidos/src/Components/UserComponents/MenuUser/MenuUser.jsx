@@ -53,6 +53,7 @@ export default function HomeUser() {
           <Link to="/bulamedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Bula de Med</Link>
           <Link to="/agendamed" className={styleHomeUser.linkAside} onClick={toggleMenu}> Agendamentos Med</Link>
           <Link to="/medcid" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cid tela de Med</Link>
+          <Link to="/cadmedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Incluir Medico</Link>
 
 
         </aside>

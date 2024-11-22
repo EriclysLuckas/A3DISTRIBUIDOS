@@ -9,6 +9,7 @@ import CadastroPac from "../src/Pages/PagesUser/CadastroPac/CadastroPac.jsx";
 // import Endereco from "../src/Pages/PagesUser/EndereçoPac/EnderecoPac.jsx";
 import AgendamentosMed from "../src/Pages/PagesAdm/AgendamentosMed/AgendamentosMed.jsx"
 import MedBula from "../src/Pages/PagesAdm/MedBula/MedBula.jsx"
+import CadMedico from "../src/Pages/PagesAdm/CadastroMed/CadastroMed.jsx"
 
 
 
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       {path: "bulamedico", element: <MedBula />},
       {path: "agendamed", element: <AgendamentosMed/>},
       {path: "medcid", element: <CidUser />},
+      {path: "cadmedico", element: <CadMedico />},
 
 
     ],

@@ -1,7 +1,7 @@
-import styleCadastroPac from "./CadastroPac.module.css";
+import styleCadastroPac from "./CadastroMed.module.css";
 
 
-export default function CadastroPac() {
+export default function CadastroMed() {
   return(
     <div className={styleCadastroPac.Selectioncontainer}>
 
