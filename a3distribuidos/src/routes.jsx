@@ -6,7 +6,7 @@ import MyQueriesUser from './Pages/PagesUser/MyQueriesUser/MyQueriesUser.jsx';
 import Medicines from './Pages/PagesUser/Medicines/Medicines.jsx';
 import CidUser from './Components/Cid/Cid.jsx';
 import CadastroPac from "../src/Pages/PagesUser/CadastroPac/CadastroPac.jsx";
-import Endereco from "../src/Pages/PagesUser/EndereçoPac/EnderecoPac.jsx";
+// import Endereco from "../src/Pages/PagesUser/EndereçoPac/EnderecoPac.jsx";
 import AgendamentosMed from "../src/Pages/PagesAdm/AgendamentosMed/AgendamentosMed.jsx"
 import MedBula from "../src/Pages/PagesAdm/MedBula/MedBula.jsx"
 
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
 
       // rotas momentaneas 
       {path: "cadpac", element: <CadastroPac />},
-      {path: "enderecopac", element: <Endereco />},
+      // {path: "enderecopac", element: <Endereco />},
       {path: "bulamedico", element: <MedBula />},
       {path: "agendamed", element: <AgendamentosMed/>},
       {path: "medcid", element: <CidUser />},
