@@ -3,37 +3,62 @@ import { FiX } from "react-icons/fi";
 import { useState } from "react";
 import PropTypes from 'prop-types';
 
-export default function AddressForm({ actionModal}) {
+export default function AddressForm({ actionModal, onEnderecoChange }) {
     const [endereco, setEndereco] = useState({
-        bairro: "",
+        rua: "",
+        numero: "",
         cidade: "",
         estado: "",
-        numero: "",
     });
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setEndereco((prevState) => ({
-          ...prevState,
+        setEndereco((prev) => ({
+          ...prev,
           [name]: value,
         }));
     };
 
+    const handleSubmit = () => {
+        // Verifique os valores antes de enviar para o componente pai
+        console.log("Endereco submetido:", endereco);
+    
+        // Passe o objeto do endereço para o componente pai
+        onEnderecoChange(endereco);
+    
+        // Fechar o modal
+        actionModal();
+      };
+
     return (
         <div className={styles.formWrapper}>
-            <div className={styles.closeModal}><FiX onClick ={actionModal} /></div>
+            <div className={styles.closeModal}>
+                <FiX onClick={actionModal} />
+            </div>
             <h2 className={styles.formTitle}>Formulário de Endereço</h2>
 
             <div className={styles.inputGroup}>
-                <label htmlFor="bairro" className={styles.label}>Bairro</label>
+                <label htmlFor="rua" className={styles.label}>Rua</label>
                 <input
                     type="text"
-                    id="bairro"
-                    name="bairro"
+                    id="rua"
+                    name="rua"
                     className={styles.inputField}
-                    placeholder="Adicione o Bairro"
-                    value={endereco.bairro}
+                    placeholder="Adicione a Rua"
+                    value={endereco.rua}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div className={styles.inputGroup}>
+                <label htmlFor="numero" className={styles.label}>Número</label>
+                <input
+                    type="text"
+                    id="numero"
+                    name="numero"
+                    className={styles.inputField}
+                    placeholder="Adicione o Número"
+                    value={endereco.numero}
                     onChange={handleChange}
                 />
             </div>
@@ -64,20 +89,7 @@ export default function AddressForm({ actionModal}) {
                 />
             </div>
 
-            <div className={styles.inputGroup}>
-                <label htmlFor="numero" className={styles.label}>Número</label>
-                <input
-                    type="text"
-                    id="numero"
-                    name="numero"
-                    className={styles.inputField}
-                    placeholder="Adicione o Número"
-                    value={endereco.numero}
-                    onChange={handleChange}
-                />
-            </div>
-
-            <button type="button" className={styles.submitButton} onClick={actionModal}>Cadastrar</button>
+            <button type="button" className={styles.submitButton} onClick={handleSubmit}>Cadastrar</button>
         </div>
     );
 }
@@ -85,4 +97,5 @@ export default function AddressForm({ actionModal}) {
 // Corrigindo a tipagem das props
 AddressForm.propTypes = {
     actionModal: PropTypes.func.isRequired, // Ação para alternar o modal (função)
+    onEnderecoChange: PropTypes.func.isRequired,  // Função para passar os dados de endereço para o pai
 };

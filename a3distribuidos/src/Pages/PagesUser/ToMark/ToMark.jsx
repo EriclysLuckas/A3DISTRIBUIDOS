@@ -4,13 +4,13 @@ import { useState } from "react";
 
 export default function ToMark() {
 
-  const { consultas,setConsultas } = UseBaseContext(); //chama a base 
+  const { medicos,novaConsulta } = UseBaseContext(); 
 
   const [formAgendamento, setFormAgendamento] = useState({
-    paciente_id: "", // Você pode definir esse valor ao buscar o paciente ou mantê-lo fixo
+    paciente_id: "", 
     medico_id: "",
-    data: "", // Para armazenar a data
-    hora: "", // Para armazenar a hora
+    data: "", 
+    hora: "", 
     notificacao_paciente: true,
     notificacao_medico: true,
   });
@@ -45,8 +45,8 @@ export default function ToMark() {
       notificacao_medico: formAgendamento.notificacao_medico,
     };
   
-    // Chama a função setConsultas
-    const result = await setConsultas(consultaData);
+    // Chama a função novaConsulta
+    const result = await novaConsulta(consultaData);
   
     // Verifica se a consulta foi agendada com sucesso
     if (result.success) {
@@ -104,8 +104,8 @@ export default function ToMark() {
                 className={styleToMark.box_list}
               >
                 <option value="">Selecione um Médico</option>
-                {consultas && consultas.length > 0 ? (
-                  consultas.map((medico) => (
+                {medicos && medicos.length > 0 ? (
+                  medicos.map((medico) => (
                     <option key={medico.id} value={medico.id}>
                       {medico.nome}
                     </option>

@@ -7,7 +7,9 @@ export default function useUtils() {
 
   const [agendamentos, setAgendamentos] = useState([]);  
   const [base, setBase] = useState([]);                                          // Estado para armazenar os dados de cids
-  const [medicos, setMedicos] = useState([]);  // Estado para armazenar dados de clínicas
+  const [medicos, setMedicos] = useState([]); 
+  const [pacientes, setPacientes ] = useState([]);                                          // Estado para armazenar os dados de cids
+  // Estado para armazenar dados de clínicas
   // Função para buscar dados de cids
   const fetchData = async () => {
     try {
@@ -179,9 +181,50 @@ const novaConsulta = async (consultaData) => {
 };
 
   
+  //============================ PACIENTES =========================
+
+  const fetchPacientes = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/api/pacientescls");
   
+      if (!response.ok) {  // Verifica se a resposta foi bem-sucedida
+        throw new Error(`Erro HTTP! Status: ${response.status}`);
+      }
   
+      const data = await response.json();
+      setPacientes(data);  // Atualiza o estado com dados de médicos
+    } catch (error) {
+      console.error("Erro ao buscar médicos:", error);
+      setPacientes([]);  // Caso ocorra erro, limpa o estado
+    }
+  };
+
+  const novoPaciente = async (consultaData) => {
+    try {
+      const response = await fetch("http://localhost:4000/api/pacientes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(consultaData),
+      });
+  
+      // Verifica se a resposta foi bem-sucedida (status HTTP 2xx)
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log("Paciente cadastrado  com sucesso!", responseData);
+        return { success: true, data: responseData };  // Retorna sucesso com dados
+      } else {
+        const errorData = await response.json();
+        console.error("Erro ao enviar os dados:", errorData);
+        return { success: false, error: errorData }; // Retorna erro com dados de erro
+      }
+    } catch (error) {
+      console.error("Erro ao enviar os dados:", error);
+      return { success: false, error: error.message || error };  // Retorna erro com dados do erro
+    }
+  };
   
   // Retorna todas as funções e o estado
-  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite,medicos, novaConsulta,agendamentos};
+  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite,medicos, novaConsulta,agendamentos,fetchPacientes,pacientes,novoPaciente};
 }
