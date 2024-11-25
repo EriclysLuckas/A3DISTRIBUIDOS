@@ -1,4 +1,5 @@
 import styles from './Medicines.module.css';
+import UseBaseContext from "../../../Hooks/UseBaseContext";
 
 export default function Medicines() {
     const handleSubmit = (e) => {
@@ -6,9 +7,12 @@ export default function Medicines() {
         const form = e.target;
         form.submit();
     };
+    const { pacientes } = UseBaseContext();
+
 
     return (
         <div className={styles.formWrapper}>
+
             <h2 className={styles.formTitle}>Receitar Medicamento</h2>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.inputGroup}>
@@ -19,10 +23,11 @@ export default function Medicines() {
                         className={styles.selectField}
                     >
                         <option value="">Selecione um paciente</option>
-                        <option value="João">João</option>
-                        <option value="Maria">Maria</option>
-                        <option value="Jacinto">Jacinto</option>
-                        <option value="Manoel">Manoel</option>
+                        {pacientes.map((pacientes)=>(
+                            <option key={pacientes.id} value={pacientes.id}>
+                                {pacientes.nome}
+                            </option>
+                        ))}
                     </select>
                 </div>
 

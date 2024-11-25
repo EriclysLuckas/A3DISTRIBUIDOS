@@ -128,6 +128,32 @@ useEffect(() => {
   fetchMedicos();  // Carrega os dados de médicos
 }, []);
   
+const novoMedico = async (consultaData) => {
+  try {
+    const response = await fetch("http://localhost:4000/api/medicos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(consultaData),
+    });
+
+    // Verifica se a resposta foi bem-sucedida (status HTTP 2xx)
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log("Consulta agendada com sucesso!", responseData);
+      return { success: true, data: responseData };  // Retorna sucesso com dados
+    } else {
+      const errorData = await response.json();
+      console.error("Erro ao enviar os dados:", errorData);
+      return { success: false, error: errorData }; // Retorna erro com dados de erro
+    }
+  } catch (error) {
+    console.error("Erro ao enviar os dados:", error);
+    return { success: false, error: error.message || error };  // Retorna erro com dados do erro
+  }
+};
+ 
 
 
 
@@ -179,13 +205,14 @@ const novaConsulta = async (consultaData) => {
     return { success: false, error: error.message || error };  // Retorna erro com dados do erro
   }
 };
+ 
 
   
   //============================ PACIENTES =========================
 
   const fetchPacientes = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/pacientescls");
+      const response = await fetch("http://localhost:4000/api/pacientes");
   
       if (!response.ok) {  // Verifica se a resposta foi bem-sucedida
         throw new Error(`Erro HTTP! Status: ${response.status}`);
@@ -197,7 +224,11 @@ const novaConsulta = async (consultaData) => {
       console.error("Erro ao buscar médicos:", error);
       setPacientes([]);  // Caso ocorra erro, limpa o estado
     }
+  
   };
+    useEffect(() => {
+      fetchPacientes();  // Carrega os pacientes
+    }, []);
 
   const novoPaciente = async (consultaData) => {
     try {
@@ -223,8 +254,12 @@ const novaConsulta = async (consultaData) => {
       console.error("Erro ao enviar os dados:", error);
       return { success: false, error: error.message || error };  // Retorna erro com dados do erro
     }
+    
   };
+  useEffect(() => {
+    fetchPacientes();  // Carrega os pacientes
+  }, []);
   
   // Retorna todas as funções e o estado
-  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite,medicos, novaConsulta,agendamentos,fetchPacientes,pacientes,novoPaciente};
+  return { base, addCid, deleteCid, getCidById, updateCid, toggleFavorite,medicos, novaConsulta,agendamentos,fetchPacientes,pacientes,novoPaciente, novoMedico};
 }
