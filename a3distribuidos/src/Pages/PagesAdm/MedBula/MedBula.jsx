@@ -4,8 +4,8 @@ export default function MedBula() {
   return (
   
   <div className={styleMedBula.container}>
-
     {/* Parte da Esquerda */}
+    <div className={styleMedBula.left_corner}>
     <div className={styleMedBula.h1}>
       <h1>Bulas</h1>
     </div>
@@ -36,9 +36,6 @@ export default function MedBula() {
           </button>
         </div>
       </form>
-
-      <div>
-        <p>oi</p>
       </div>
 
   </div>
