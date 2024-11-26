@@ -1,0 +1,93 @@
+.SectionHomeUser{
+    background-color: var(--verdeEscuro);
+    padding: 1rem;
+    font-size: 2ch;
+    transition: all 0.3s ease;
+    min-width: 12rem;
+    display: flex;
+    z-index: 2;
+    position: relative;
+   
+} 
+p{color: red;}
+.content{
+    width: 5ch;
+    position: relative;
+    text-align: center;
+  .toggleButton{
+    background: transparent;
+    border:none;
+    animation: animationMenu 0.5s forwards; 
+
+}
+}
+
+
+@keyframes animationMenu {
+    
+    0% {
+
+        left: -250px;
+    }
+    100% {
+left: 0;
+    }
+   
+}
+@keyframes animationMenuClose {
+    
+    0% {
+        left: 0;
+
+    }
+    100% {
+        left: -250px;
+
+    }
+   
+}
+
+.openMenu{
+    font-size:3ch;
+    background-color: transparent;
+}
+.closeXMenu{
+    font-size:3ch;
+
+}
+
+  @media (width < 1100px) {
+    .SectionHomeUser{
+     width: 100%;
+        
+    } 
+ 
+    .menuUser{
+        position: absolute;
+        background-color: var(--verdeEscuro);
+        padding: 2rem;
+        top: 100%;
+        height: 93.5vh;
+        animation: animationMenu 0.5s forwards; 
+        font-size: 1.8ch;
+    }
+   
+  }
+aside{
+    display: flex;
+    flex-direction: column;
+    gap: 2ch;
+
+    .linkAside{
+        width: 100%;
+        color: #fff;
+        text-decoration: none;
+        &:hover{
+            color: #353434;
+        }
+    }
+}
+.isMobile{
+    height: 5%;
+}
+

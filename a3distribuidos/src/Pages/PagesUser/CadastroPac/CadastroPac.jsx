@@ -5,8 +5,12 @@ import UseBaseContext from "../../../Hooks/UseBaseContext";
 
 // Função para validar CPF
 const validarCPF = (cpf) => {
-  const regexCpf = /^(?:\d{3}\.){2}\d{3}-\d{2}$/;
-  return regexCpf.test(cpf);
+  const cpfLimpo = cpf.replace(/\D/g, '');
+
+  // Verifica se o CPF tem exatamente 11 dígitos
+  const regexCpf = /^[0-9]{11}$/;
+
+  return regexCpf.test(cpfLimpo);
 };
 
 
@@ -103,6 +107,15 @@ export default function CadastroPac() {
       alert("Paciente cadastrado com sucesso!");
 
       novoPaciente(formData);
+      setFormData({
+        nome: '',
+        email: '',
+        cpf: '',
+        telefone: '',
+        data_nascimento: '',
+        endereco: '',
+        usuario_id: 'b222df61-c3eb-43f8-995e-2569bdfb9e7a',
+      });
     } else {
       console.log("Não enviar devido a erros.");
     }

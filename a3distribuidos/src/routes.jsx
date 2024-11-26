@@ -10,14 +10,22 @@ import CadastroPac from "../src/Pages/PagesUser/CadastroPac/CadastroPac.jsx";
 import AgendamentosMed from "../src/Pages/PagesAdm/AgendamentosMed/AgendamentosMed.jsx"
 import MedBula from "../src/Pages/PagesAdm/MedBula/MedBula.jsx"
 import CadMedico from "../src/Pages/PagesAdm/CadastroMed/CadastroMed.jsx"
-
+import HomePage from "./Components/HomePage/Homepage.jsx";
+import LayoutMed from './Pages/LayoutMed.jsx';
 
 
 
 
 const router = createBrowserRouter([
+
+  
+
   {
     path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/paciente",
     element: <LayoutUser />,
     children: [
       { index: true, element: <ToMark /> },
@@ -27,26 +35,27 @@ const router = createBrowserRouter([
       {path: "cid", element: <CidUser />},
 
 
-      // rotas momentaneas 
-      {path: "cadpac", element: <CadastroPac />},
-      // {path: "enderecopac", element: <Endereco />},
-      {path: "bulamedico", element: <MedBula />},
-      {path: "agendamed", element: <AgendamentosMed/>},
-      {path: "medcid", element: <CidUser />},
-      {path: "cadmedico", element: <CadMedico />},
+      // // rotas momentaneas 
+      // {path: "cadpac", element: <CadastroPac />},
+      // // {path: "enderecopac", element: <Endereco />},
+      // {path: "bulamedico", element: <MedBula />},
+      // {path: "agendamed", element: <AgendamentosMed/>},
+      // {path: "medcid", element: <CidUser />},
+      // {path: "cadmedico", element: <CadMedico />},
 
 
     ],
   },
   {
     path: "/med",
-    element: <LayoutUser />,
+    element: <LayoutMed />,
     children: [
-      { index: true, element: <ToMark /> },
-      {path: "agendar", element: <ToMark />},
-      {path: "minhaconsulta", element: <MyQueriesUser />},
-      {path: "medicamentos", element: <Medicines />},
-      {path: "cid", element: <CidUser />},
+      {path: "cadpac", element: <CadastroPac />},
+      // {path: "enderecopac", element: <Endereco />},
+      {path: "bulamedico", element: <MedBula />},
+      {path: "agendamed", element: <AgendamentosMed/>},
+      {path: "medcid", element: <CidUser />},
+      {path: "cadmedico", element: <CadMedico />},
 
     ],
   },

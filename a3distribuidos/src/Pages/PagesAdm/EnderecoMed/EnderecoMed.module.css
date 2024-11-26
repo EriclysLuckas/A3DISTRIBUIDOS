@@ -70,18 +70,6 @@ select, option {
     height: 80px;
 }
 
-.submitButton {
-    padding: 12px;
-    font-size: 16px;
-    background-color: #04544c;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    box-sizing: border-box; 
-}
 
 .observacoesGroup {
     margin-bottom: 0;

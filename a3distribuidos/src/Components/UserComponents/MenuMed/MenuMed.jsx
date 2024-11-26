@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import styleHomeUser from "./MenuUser.module.css";
+import styleHomeUser from "./MenuMed.module.css";
 import { Link } from 'react-router-dom';
 import { FiX, FiMenu } from "react-icons/fi";
 import Header from '../../Header/Header';
 
-export default function HomeUser() {
+export default function HomeMed() {
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Ajuste aqui o valor da largura
 
@@ -42,17 +42,15 @@ export default function HomeUser() {
       )}
       {(isOpen || !isMobile) && (
         <aside className={`${styleHomeUser.menuUser} ${isOpen ? styleHomeUser.opemMenu : ''}`}>
-          <Link to="/paciente/agendar" className={styleHomeUser.linkAside} onClick={toggleMenu}>Agendar Consulta</Link>
-          <Link to="/paciente/minhaconsulta" className={styleHomeUser.linkAside} onClick={toggleMenu}>Minhas Consultas</Link>
-          <Link to="/paciente/cid" className={styleHomeUser.linkAside} onClick={toggleMenu}>CID</Link>
-          
-          {/* menu momentaneo
+         
+          {/* menu momentaneo */}
           <p> links momentaneos </p>
-          <Link to="/cadpac" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cadastrar Pac</Link>
-          <Link to="/bulamedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Bula de Med</Link>
-          <Link to="/agendamed" className={styleHomeUser.linkAside} onClick={toggleMenu}> Agendamentos Med</Link>
-          <Link to="/medcid" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cid tela de Med</Link>
-          <Link to="/cadmedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Incluir Medico</Link> */}
+          <Link to="/med/cadpac" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cadastrar Pac</Link>
+          <Link to="/med/bulamedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Bula de Med</Link>
+          <Link to="/med/agendamed" className={styleHomeUser.linkAside} onClick={toggleMenu}> Agendamentos Med</Link>
+          <Link to="/med/medcid" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cid tela de Med</Link>
+          <Link to="/med/cadmedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Incluir Medico</Link>
+          <Link to="/med/medicamentos" className={styleHomeUser.linkAside} onClick={toggleMenu}>Medicamentos</Link>
 
 
         </aside>

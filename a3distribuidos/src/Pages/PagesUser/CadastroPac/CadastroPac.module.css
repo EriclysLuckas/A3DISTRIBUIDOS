@@ -51,10 +51,10 @@ position: relative;
     display: flex;
     width: 100%;
     justify-content:center;
+ 
 }
 
 .btn{
-    padding: 0.6rem;
     width: 60%;
     border-radius: 8px;
     background-color:#04544c;

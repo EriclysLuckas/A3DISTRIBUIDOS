@@ -89,7 +89,7 @@ export default function AddressForm({ actionModal, onEnderecoChange }) {
                 />
             </div>
 
-            <button type="button" className={styles.submitButton} onClick={handleSubmit}>Cadastrar</button>
+            <button type="button" className={styles.submitButton1} onClick={handleSubmit}>Cadastrar</button>
         </div>
     );
 }
