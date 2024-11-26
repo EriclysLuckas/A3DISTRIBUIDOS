@@ -1,21 +1,32 @@
 import styleMedBula from "./MedBula.module.css";
 
 export default function MedBula() {
-  return(
-    <div className={styleMedBula.container}>
-      <form className={styleMedBula.box_container}>
-        <div className={styleMedBula.h1}>
-          <h1>Bulas</h1>
-        </div>
+  return (
+  
+  <div className={styleMedBula.container}>
 
-        <div className={styleMedBula.search}>
-          <input type="text" name="Buscar" placeholder="Buscar" />
-        </div>
+    {/* Parte da Esquerda */}
+    <div className={styleMedBula.h1}>
+      <h1>Bulas</h1>
+    </div>
 
-        <div className={styleMedBula.list}>
-          <label htmlFor="">Categoria</label>
-          <select name="categoria" id="categoria" placeholder="Categoria">
-            <option value="">Não a Categoria</option>
+    <form className={styleMedBula.left_box}>
+      <div className={styleMedBula.search}>
+      <div className={styleMedBula.bar}>
+          <input 
+          type="text" 
+          name="Buscar" 
+          placeholder="Buscar"/>
+        </div>
+      </div>
+
+        <div className={styleMedBula.category}>
+          <select 
+          name="categoria" 
+          id="categoria" 
+          placeholder="Categoria" 
+          className={styleMedBula.category_list}>
+            <option value="">Categoria</option>
           </select>
         </div>
 
@@ -24,9 +35,20 @@ export default function MedBula() {
             Buscar
           </button>
         </div>
-
       </form>
-    </div>
+
+      <div>
+        <p>oi</p>
+      </div>
+
+  </div>
+    
+    
+   
+
+
   )
+
+ 
   
 }
