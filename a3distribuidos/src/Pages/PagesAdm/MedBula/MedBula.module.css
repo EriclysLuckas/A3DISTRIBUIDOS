@@ -1,65 +1,127 @@
-.h1{
+.container {
+    display: flex;
+    width: 100%;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.left_corner {
+    background-color: #d9d9d9;
+    padding: 0.5rem;
+    width: 15%;
+}
+
+.left_box {
+    width: 100%;
+    padding: 5px;
+}
+
+.h1 {
     text-align: center;
     color: #060606;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 20%;
 }
 
-
-
-.left_corner{ 
-    background-color: #d9d9d9;
-    padding: 0.1rem;
-    height: 100%;
-
-}
-
-.left_box{
-    width: 9rem;
-    padding: 5px;
-    
-}
-
-
-.bar input{
+.bar input {
     font-weight: bold;
-    min-width: 100%;
+    width: 100%;
     padding: 0.4rem;
-    border-radius: 20px ; 
+    border-radius: 20px;
     border: 1px solid #ccc;
 }
 
-.category{
+.category {
     margin-bottom: 20px;
 }
 
-.category_list{
-     min-width: 100%;
+.category_list {
+    width: 100%;
     padding: 0.4rem;
     background-color: #fff;
-    color:  #060606;
+    color: #060606;
     border-radius: 10rem;
     border: none;
 }
 
-button{
+button {
     margin-top: 10px;
     margin-left: 20px;
     width: 80px;
-    height:30px;
+    height: 30px;
     border-radius: 6px;
     border: none;
     background-color: var(--verdeEscuro);
 }
 
-.btn{
-   color:#fff;
+.btn {
+    color: #fff;
 }
 
+.right_corner {
+    flex: 1;
+    padding: 1rem;
+    background-color: #fff;
+    border-left: 2px solid #d9d9d9;
+    border-radius: 0 10px 10px 0;
+}
 
+.table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+/* Adicionando uma barra de rolagem apenas na área dos exemplos */
+.table_container {
+    max-height: 300px; /* Define uma altura máxima para os exemplos */
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
+    margin-top: 15px; /* Espaçamento entre o cabeçalho e os exemplos */
+}
 
+.table th,
+.table td {
+    padding: 10px;
+    text-align: center; /* Alinha todo o conteúdo ao centro */
+    vertical-align: middle;
+    color: #060606;
+}
 
+/* Definindo largura fixa para cada coluna */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    width: 20%; /* Largura para o Código */
+}
 
+.table th:nth-child(2),
+.table td:nth-child(2) {
+    width: 50%; /* Largura para o Produto */
+}
 
+.table th:nth-child(3),
+.table td:nth-child(3) {
+    width: 30%; /* Largura para o Bula */
+}
 
+/* Botão de download */
+.download_btn {
+    background-color: var(--verdeEscuro); /* Mantém o verde escuro */
+    color: white;
+    padding: 4px 30px;
+    border: none;
+    border-radius: 18px; /* Bordas arredondadas */
+    cursor: pointer;
+    text-decoration: none; /* Remove o sublinhado do link */
+    display: inline-block; /* Garante que o botão tenha o mesmo layout */
+    text-align: center; /* Centraliza o conteúdo */
+    transition: background-color 0.3s; /* Efeito suave ao passar o mouse */
+}
+
+.download_btn:hover {
+    background-color: #004d33; /* Cor mais escura no hover */
+}
