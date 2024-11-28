@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styleHomeUser from "./MenuMed.module.css";
 import { Link } from 'react-router-dom';
-import { FiX, FiMenu } from "react-icons/fi";
+import { FiX, FiMenu, FiChevronsLeft  } from "react-icons/fi";
 import Header from '../../Header/Header';
 
 export default function HomeMed() {
@@ -59,6 +59,13 @@ export default function HomeMed() {
         <Header />
       )}
 
+
+
+
+      <button className={styleHomeUser.logout}>
+        <Link to ="/" className={styleHomeUser.link}><FiChevronsLeft /> LogOut</Link>
+        
+      </button>
     </section>
   );
 }

@@ -7,8 +7,29 @@
     display: flex;
     z-index: 2;
     position: relative;
+    flex-direction: column;
    
 } 
+.menuUser{
+    height: 95%
+}
+
+.logout{
+    display: flex;
+    margin: 0;
+    font-size: 2ch;
+    width: 100%;
+    
+    .link{
+        text-decoration: none;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+       
+    }
+}
 p{color: red;}
 .content{
     width: 5ch;
