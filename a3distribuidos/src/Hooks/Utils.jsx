@@ -8,7 +8,12 @@ export default function useUtils() {
   const [agendamentos, setAgendamentos] = useState([]);  
   const [base, setBase] = useState([]);                                          // Estado para armazenar os dados de cids
   const [medicos, setMedicos] = useState([]); 
-  const [pacientes, setPacientes ] = useState([]);                                          // Estado para armazenar os dados de cids
+  const [pacientes, setPacientes ] = useState([]); 
+  
+  
+  
+  const [medicoId, setMedicoId] = useState('48851ec2-f0d8-482f-8a02-ddf72860b9f0');  // Substitua pelo ID real do médico ou obtenha-o do contexto
+  // Estado para armazenar os dados de cids
   // Estado para armazenar dados de clínicas
   // Função para buscar dados de cids
   const fetchData = async () => {
@@ -127,6 +132,17 @@ useEffect(() => {
   fetchData();  // Carrega os dados de CIDs
   fetchMedicos();  // Carrega os dados de médicos
 }, []);
+
+
+
+
+
+
+
+
+
+
+
   
 const novoMedico = async (consultaData) => {
   try {
@@ -154,7 +170,16 @@ const novoMedico = async (consultaData) => {
   }
 };
  
+const getWeekRange = () => {
+  const today = new Date();
+  const firstDayOfWeek = today.getDate() - today.getDay() + 1; // Segunda-feira
+  const lastDayOfWeek = firstDayOfWeek + 6; // Domingo
+  
+  const startOfWeek = new Date(today.setDate(firstDayOfWeek));
+  const endOfWeek = new Date(today.setDate(lastDayOfWeek));
 
+  return { startOfWeek, endOfWeek };
+};
 
 
 //============================ AGENDAMENTOS =========================
@@ -162,23 +187,36 @@ const fetchAgendamentos = async () => {
   try {
     const response = await fetch("http://localhost:4000/api/agendamentos");
 
-    if (!response.ok) {  // Verifica se a resposta foi bem-sucedida
+    if (!response.ok) {
       throw new Error(`Erro HTTP! Status: ${response.status}`);
     }
 
     const data = await response.json();
-    setAgendamentos(data);  // Atualiza o estado com dados de médicos
+
+    // Obter o intervalo da semana atual
+    const { startOfWeek, endOfWeek } = getWeekRange();
+
+    // Filtrar agendamentos para a semana atual e pelo ID do médico
+    const agendamentosFiltrados = data.filter((agendamento) => {
+      const agendamentoDate = new Date(agendamento.data_hora); // Data do agendamento
+      return (
+        agendamento.medico_id === medicoId && 
+        agendamentoDate >= startOfWeek && 
+        agendamentoDate <= endOfWeek
+      );
+    });
+
+    setAgendamentos(agendamentosFiltrados); // Atualiza o estado com os agendamentos filtrados
   } catch (error) {
-    console.error("Erro ao buscar médicos:", error);
-    setAgendamentos([]);  // Caso ocorra erro, limpa o estado
+    console.error("Erro ao buscar agendamentos:", error);
+    setAgendamentos([]); // Caso ocorra erro, limpa o estado
   }
 };
-
 useEffect(() => {
   fetchData();  // Carrega os dados de CIDs
   fetchMedicos();  // Carrega os dados de médicos
   fetchAgendamentos()
-}, []);
+}, [medicoId]);
   
 const novaConsulta = async (consultaData) => {
   try {
