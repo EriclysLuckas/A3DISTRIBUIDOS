@@ -38,7 +38,7 @@ export default function ToMark() {
   
     // Criando os dados da consulta
     const consultaData = {
-      paciente_id: "2e8173dc-fb52-45e7-93e2-4da7277f3e72",  // Exemplo de paciente_id
+      paciente_id: "3c9fde91-d4fb-4e2a-a152-436012ab4c79",  // Exemplo de paciente_id
       medico_id: formAgendamento.medico_id,
       data_hora: data_hora,
       notificacao_paciente: formAgendamento.notificacao_paciente,
@@ -62,7 +62,7 @@ export default function ToMark() {
       })
     } else {
       console.error("Erro ao agendar consulta:", result.error);
-      alert("Houve um erro ao tentar agendar a consulta. Tente novamente.");
+      alert("Horário indisponível para o médico selecionado!");
     }
   };
 
@@ -82,6 +82,7 @@ export default function ToMark() {
                 name="data"
                 value={formAgendamento.data}
                 onChange={handleChange}
+                required
               />
             </div>
 
@@ -92,6 +93,7 @@ export default function ToMark() {
                 name="hora"
                 value={formAgendamento.hora}
                 onChange={handleChange}
+                required
               />
             </div>
 
@@ -102,6 +104,7 @@ export default function ToMark() {
                 value={formAgendamento.medico_id}
                 onChange={handleChange}
                 className={styleToMark.box_list}
+                required
               >
                 <option value="">Selecione um Médico</option>
                 {medicos && medicos.length > 0 ? (
