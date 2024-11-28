@@ -18,7 +18,7 @@ export default function Homepage() {
   return (
     <div className={styleHome.containerHome}>
       <div className={styleHome.buttonsimg}>
-      <img src="https://img.freepik.com/fotos-gratis/close-da-mao-da-enfermeira-do-homem-verificando-os-sintomas-da-doenca-na-area-de-transferencia-discutindo-o-tratamento-de-saude-com-o-medico-que-trabalha-no-escritorio-do-hospital-medico-afro-americano-analisando-documentos-medicos_482257-30444.jpg?t=st=1732836221~exp=1732839821~hmac=b677baa8f7f53a2fc9d9df54280bd680a8799481778cf1ee1cab57e14f9e54f5&w=740" alt="" />
+      <img src="../../../home.png" alt="" />
       </div>
       <div className={styleHome.content}>
 
