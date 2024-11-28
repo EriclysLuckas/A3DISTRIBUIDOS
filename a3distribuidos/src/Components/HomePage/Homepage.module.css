@@ -1,3 +1,39 @@
 .containerHome{
     height: 100vh;
+    display: flex;
+    background-color:var(--cinza);
+}
+.content{
+    width: 50%;
+display: flex;
+flex-direction: column;
+align-items: center;
+h1{
+color: var(--verdeEscuro);
+margin-top: 5ch;
+}
+
+}
+.buttonsimg{
+    background-color: black;
+    height: 100%;
+    width: 50%;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.buttonsContainer{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button{
+        width: 50%;
+        height: 6ch;
+        cursor: pointer;
+    }
 }

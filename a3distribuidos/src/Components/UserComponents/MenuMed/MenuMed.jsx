@@ -44,7 +44,6 @@ export default function HomeMed() {
         <aside className={`${styleHomeUser.menuUser} ${isOpen ? styleHomeUser.opemMenu : ''}`}>
          
           {/* menu momentaneo */}
-          <p> links momentaneos </p>
           <Link to="/med/cadpac" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cadastrar Pac</Link>
           <Link to="/med/bulamedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Bula de Med</Link>
           <Link to="/med/agendamed" className={styleHomeUser.linkAside} onClick={toggleMenu}> Agendamentos Med</Link>

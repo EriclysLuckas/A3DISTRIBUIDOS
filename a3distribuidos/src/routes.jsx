@@ -31,7 +31,6 @@ const router = createBrowserRouter([
       { index: true, element: <ToMark /> },
       {path: "agendar", element: <ToMark />},
       {path: "minhaconsulta", element: <MyQueriesUser />},
-      {path: "medicamentos", element: <Medicines />},
       {path: "cid", element: <CidUser />},
 
 
@@ -56,6 +55,7 @@ const router = createBrowserRouter([
       {path: "agendamed", element: <AgendamentosMed/>},
       {path: "medcid", element: <CidUser />},
       {path: "cadmedico", element: <CadMedico />},
+      {path: "/med/medicamentos", element: <Medicines />},
 
     ],
   },
