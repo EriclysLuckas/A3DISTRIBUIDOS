@@ -4,16 +4,26 @@
     background-color: #f8f9fa;
     border-radius: 10px;
     overflow: hidden;
+    flex-direction: column;
 }
-
+.search{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
 .left_corner {
     background-color: #d9d9d9;
     padding: 0.5rem;
-    width: 15%;
+    width: 100%;
+    
 }
 
 .left_box {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 5px;
 }
 
@@ -21,28 +31,30 @@
     text-align: center;
     color: #060606;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-bottom: 20%;
 }
 
 .bar input {
     font-weight: bold;
-    width: 100%;
+    width: 50%;
     padding: 0.4rem;
     border-radius: 20px;
     border: 1px solid #ccc;
 }
 
 .category {
-    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+ 
 }
 
 .category_list {
-    width: 100%;
+    width: 40%;
     padding: 0.4rem;
     background-color: #fff;
     color: #060606;
     border-radius: 10rem;
     border: none;
+    margin: auto;
 }
 
 button {

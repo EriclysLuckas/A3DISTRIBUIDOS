@@ -124,7 +124,7 @@ export default function CadastroPac() {
     <div className={styleCadastroPac.Selectioncontainer}>
       <form className={styleCadastroPac.box_container} onSubmit={handleSubmit}>
         <div className={styleCadastroPac.h2}>
-          <h2>Cria conta</h2>
+          <h2>Cadastrar Pacientes</h2>
         </div>
         <div className={styleCadastroPac.register}>
           <div className={styleCadastroPac.bar}>
