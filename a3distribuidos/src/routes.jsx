@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     path: "/med",
     element: <LayoutMed />,
     children: [
-      {path: "cadpac", element: <CadastroPac />},
+      {index: true,path: "cadpac", element: <CadastroPac />},
       // {path: "enderecopac", element: <Endereco />},
       {path: "bulamedico", element: <MedBula />},
       {path: "agendamed", element: <AgendamentosMed/>},
