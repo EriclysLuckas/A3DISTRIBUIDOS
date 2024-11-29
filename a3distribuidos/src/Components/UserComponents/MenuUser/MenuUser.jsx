@@ -54,17 +54,17 @@ export default function HomeUser() {
           <Link to="/medcid" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cid tela de Med</Link>
           <Link to="/cadmedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Incluir Medico</Link> */}
 
-
+<button className={styleHomeUser.logout}>
+        <Link to ="/" className={styleHomeUser.link}><FiChevronsLeft /> LogOut</Link>
+        
+      </button>
         </aside>
       )}
       {(isMobile) && (
 
         <Header />
       )}
-      <button className={styleHomeUser.logout}>
-        <Link to ="/" className={styleHomeUser.link}><FiChevronsLeft /> LogOut</Link>
-        
-      </button>
+      
     </section>
   );
 }

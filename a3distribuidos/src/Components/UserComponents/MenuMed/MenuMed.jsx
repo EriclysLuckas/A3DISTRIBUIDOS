@@ -52,6 +52,10 @@ export default function HomeMed() {
           {/* <Link to="/med/medicamentos" className={styleHomeUser.linkAside} onClick={toggleMenu}>Medicamentos</Link> */}
           <Link to="/med/cid" className={styleHomeUser.linkAside} onClick={toggleMenu}>CID</Link>
 
+          <button className={styleHomeUser.logout}>
+        <Link to ="/" className={styleHomeUser.link}><FiChevronsLeft /> LogOut</Link>
+        
+      </button>
 
         </aside>
       )}
@@ -63,10 +67,6 @@ export default function HomeMed() {
 
 
 
-      <button className={styleHomeUser.logout}>
-        <Link to ="/" className={styleHomeUser.link}><FiChevronsLeft /> LogOut</Link>
-        
-      </button>
     </section>
   );
 }
