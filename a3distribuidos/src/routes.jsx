@@ -56,6 +56,8 @@ const router = createBrowserRouter([
       {path: "agendamed", element: <AgendamentosMed/>},
       {path: "medcid", element: <CidUser />},
       {path: "cadmedico", element: <CadMedico />},
+      {path: "cid", element: <CidUser />},
+
       // {path: "/med/medicamentos", element: <Medicines />},
 
     ],

@@ -50,6 +50,7 @@ export default function HomeMed() {
           <Link to="/med/medcid" className={styleHomeUser.linkAside} onClick={toggleMenu}>Cid tela de Med</Link>
           <Link to="/med/cadmedico" className={styleHomeUser.linkAside} onClick={toggleMenu}>Incluir Medico</Link>
           {/* <Link to="/med/medicamentos" className={styleHomeUser.linkAside} onClick={toggleMenu}>Medicamentos</Link> */}
+          <Link to="/med/cid" className={styleHomeUser.linkAside} onClick={toggleMenu}>CID</Link>
 
 
         </aside>
